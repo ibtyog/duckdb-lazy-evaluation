@@ -45,8 +45,8 @@ Wybierz jedną z dwóch metod instalacji środowiska:
 #### 2. Klonowanie i przejście do repozytorium:
 
 ```bash
-git clone <URL_TWOJEGO_REPO>
-cd "Laboratorium 4"
+git clone https://github.com/ibtyog/duckdb-lazy-evaluation.git
+cd duckdb-lazy-evaluation
 ```
 
 #### 3. Automatyczna synchronizacja środowiska:
@@ -66,8 +66,8 @@ Jeśli wolisz klasyczne podejście ze standardowym Pythonem (wymagany Python w w
 #### 1. Klonowanie i przejście do repozytorium:
 
 ```bash
-git clone <URL_TWOJEGO_REPO>
-cd "Laboratorium 4"
+git clone https://github.com/ibtyog/duckdb-lazy-evaluation.git
+cd duckdb-lazy-evaluation
 ```
 
 #### 2. Utworzenie środowiska wirtualnego:
