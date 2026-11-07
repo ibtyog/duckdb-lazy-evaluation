@@ -3,11 +3,58 @@
 Krótki poradnik dla zespołu jak bezpiecznie wprowadzać zmiany do projektu i przesyłać je do repozytorium.
 
 > ⚠️ **ZASADA NR 1: Nie pushujemy bezpośrednio do brancha `main`!**  
-> Wszystkie zmiany zgłaszamy w formie **Pull Requesta (PR)**. Piotr sprawdzi kod/notatki i bezpiecznie zmerguje je do głównej gałęzi (`main`).
+> Wszystkie zmiany zgłaszamy w formie **Pull Requesta (PR)**. Piotr sprawdzi kod/notatki i bezpiecznie zmerguje je do głównej gałęzi (`main`). (xd)
 
 ---
 
 ## 🛠️ Instrukcja krok po kroku (w terminalu / VS Code)
+
+### Krok 0: Konfiguracja Git i logowanie do GitHuba (tylko za pierwszym razem)
+
+Jeśli robisz to pierwszy raz na swoim komputerze, musisz się przedstawić Gitowi oraz połączyć swoje konto GitHub.
+
+#### 1. Ustawienie podpisu:
+```bash
+git config --global user.name "Twoje Imie i Nazwisko"
+git config --global user.email "twoj_email_do_githuba@example.com"
+```
+
+#### 2. Logowanie do GitHuba (Hasło do konta NIE działa – GitHub wymaga Tokena lub CLI):
+
+Wybierz **jedną** z dwóch opcji:
+
+##### Opcja A: Personal Access Token (PAT) – najczęstsza metoda
+GitHub od kilku lat nie pozwala wpisywać zwykłego hasła do konta w terminalu. Wymaga wygenerowania tzw. **Tokena (PAT)**:
+1. Zaloguj się na [github.com](https://github.com).
+2. W prawym górnym rogu kliknij swój awatar ➔ **Settings**.
+3. Na samym dole menu po lewej kliknij **Developer settings** ➔ **Personal access tokens** ➔ **Tokens (classic)**.
+4. Kliknij **Generate new token** ➔ **Generate new token (classic)**.
+5. Wpisz nazwę (np. *Laptop Studia*), zaznacz uprawnienie **`repo`** (dostęp do repozytoriów).
+6. Zjedź na dół i kliknij **Generate token**.
+7. **Skopiuj wygenerowany token** (zaczyna się od `ghp_...`). *Zapisz go sobie, bo po odświeżeniu strony już go nie zobaczysz!*
+8. Gdy podczas `git push` lub `git clone` terminal zapyta Cię o dane:
+   * **Username:** wpisz swój login na GitHubie.
+   * **Password:** wklej ten **skopiowany token** (znaki mogą się nie wyświetlać – to normalne, po prostu wklej `Ctrl+V` / `Cmd+V` i kliknij `Enter`).
+
+> 💡 **Tip:** Aby nie wklejać tokena za każdym razem, zapisz go w systemie:
+> * Na macOS: `git config --global credential.helper osxkeychain`
+> * Na Windows: `git config --global credential.helper wincred`
+
+---
+
+##### Opcja B: Przez GitHub CLI (`gh`) – automatycznie i bez kopiowania tokenów
+Jeśli wolisz zainstalować oficjalne narzędzie od GitHuba:
+1. Zainstaluj GitHub CLI:
+   * **macOS:** `brew install gh`
+   * **Windows:** `winget install --id GitHub.cli` (lub pobierz instalator z [cli.github.com](https://cli.github.com))
+2. Wpisz w terminalu:
+   ```bash
+   gh auth login
+   ```
+3. Wybierz: `GitHub.com` ➔ `HTTPS` ➔ `Yes` (autoryzuj Git) ➔ `Login with a web browser`.
+4. Wpisz wyświetlony kod jednorazowy w przeglądarce i zatwierdź. Gotowe!
+
+---
 
 ### Krok 1: Pobierz najnowszy stan projektu
 
